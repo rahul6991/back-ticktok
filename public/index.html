@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io();
+        socket.on('message', function (data) {
+            console.log(data);
+        });
+            // socket.on('news', () => { console.log("hello") });
+            // socket.emit('message', 'hello');
+    </script>
+    <script>
+        function test() {
+            socket.emit('message',"sent client");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <div class="jumbotron">
+            <h1 class="display-4">Send Message</h1>
+            <br>
+            <input id="name" class="form-control" placeholder="Name">
+            <br>
+            <textarea id="message" class="form-control" placeholder="Your Message Here">
+</textarea>
+            <br>
+            <button id="send" class="btn btn-success" onclick="test()">Send</button>
+        </div>
+        <div id="messages">
+
+        </div>
+    </div>
+</body>
+
+</html>
